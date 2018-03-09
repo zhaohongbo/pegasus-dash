@@ -1,3 +1,5 @@
+import { getToken } from './token'
+import { logout } from '../redux/authorize'
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -33,7 +35,20 @@ function checkStatus(response) {
   });
 }
 
-export default function request(url, options) {
+export default function requestWithToken(url, options) {
+  let token = getToken();
+  if (token === undefined) {
+    logout()
+    return
+  }
+  options.headers = {
+    'Authentication': getToken(),
+    ...options.headers,
+  };
+  return request(url, options);
+}
+
+export function request(url, options) {
   const defaultOptions = {
     credentials: 'include',
   };

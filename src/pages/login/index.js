@@ -2,7 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import { Form, Input, Button, message } from 'antd';
-import { login } from '../../redux/actions'
+// import { login } from '../../redux/actions'
+import { setLogin } from '../../redux/authorization'
 import { loginService } from '../../services/authService'
 
 import './index.css'
@@ -14,7 +15,7 @@ class LoginPage extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     loginService(this.props.form.getFieldsValue())
-    .then(this.handleLoginResponse)
+    // .then(this.handleLoginResponse)
     .catch(this.handleLoginError);
   }
 
@@ -81,7 +82,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: userInfo => {
-      dispatch(login(userInfo))
+      dispatch(setLogin(userInfo))
     }
   };
 }

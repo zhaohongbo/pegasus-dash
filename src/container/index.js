@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
-import { logout } from '../redux/actions'
+import { setLogout } from '../redux/authorization'
 import { Layout } from 'antd'
 import Left from './left'
 import Top from './top'
@@ -71,7 +71,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => {
-      dispatch(logout())
+      dispatch(setLogout())
     }
   };
 }
