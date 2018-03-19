@@ -1,16 +1,23 @@
 import React from 'react'
-import { HashRouter, Route } from 'react-router-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 import Container from '../container'
-import Login from '../pages/login'
+import Login from '../container/login'
+import { getUserInfo } from '../services/authService'
+import AuthorizedRoute from '../components/authorize/AuthorizedRoute'
 
 export default class RootRouter extends React.Component {
   render() {
     return (
       <HashRouter>
-        <div>
-          <Route path="/" component={Container} />
+        <Switch>
           <Route path="/login" component={Login} />
-        </div>
+          <AuthorizedRoute
+            path="/"
+            render={props => <Container {...props} />}
+            authority={getUserInfo()}
+            redirectPath="/login"
+          />
+        </Switch>
       </HashRouter>
     );
   }

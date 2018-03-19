@@ -10,9 +10,6 @@
   margin-left: -24px;
   cursor: pointer;
   transition: color .3s;
-  &:hover {
-    color: #108ee9;
-  }
 }
 
 .screenFull {
@@ -22,9 +19,6 @@
   float: right;
   margin-top: 13px;
   padding: 10px;
-  &:hover {
-    color: #108ee9;
-  }
 }
 
 .ant-layout-header {

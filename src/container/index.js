@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import { setLogout } from '../redux/authorization'
 import { Layout } from 'antd'
@@ -36,11 +35,6 @@ class Container extends React.Component {
   }
 
   render() {
-    if (!this.props.userInfo.login && this.props.history.location.pathname !== '/login') {
-      return (
-        <Redirect to='/login' />
-      );
-    }
     return (
       <Layout className="containAll">
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} >
@@ -54,7 +48,24 @@ class Container extends React.Component {
             <Middle />
           </Content>
           <Footer>
-            <Bottom />
+            <Bottom 
+              links={[{
+                key: 'key',
+                title: '首页',
+                href: '',
+                blankTarget: true,
+              }, {
+                key: 'github',
+                title: '博客',
+                href: '',
+                blankTarget: true,
+              }, {
+                key: 'Ant Design',
+                title: '帮助',
+                href: '',
+                blankTarget: true,
+              }]}
+            />
           </Footer>
         </Layout>
       </Layout>

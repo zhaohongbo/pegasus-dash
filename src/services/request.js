@@ -1,4 +1,4 @@
-import { getToken } from './token'
+import { getToken } from '../redux/token'
 import { logout } from '../redux/authorize'
 
 const codeMessage = {
@@ -37,9 +37,12 @@ function checkStatus(response) {
 
 export default function requestWithToken(url, options) {
   let token = getToken();
-  if (token === undefined) {
+  if (token === undefined || token === null) {
     logout()
-    return
+    return new Promise(function (resolve, reject) {
+      let error = new Error("failed");
+      reject(error);
+    });
   }
   options.headers = {
     'Authentication': getToken(),
@@ -70,7 +73,7 @@ export function request(url, options) {
       };
     }
   }
-  const reqUrl = "https://pegasus-api.herokuapp.com"+url
+  const reqUrl = "https://pegasus-api.herokuapp.com" + url
   return fetch(reqUrl, newOptions)
     .then(checkStatus)
     .then((response) => {

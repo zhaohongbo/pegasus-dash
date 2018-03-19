@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "3.2.3",
     "echarts": "4.0.4",
+    "node-less-chokidar": "^0.1.2",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-redux": "5.0.7",
@@ -13,8 +14,8 @@
     "redux": "3.7.2"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-less-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-less-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

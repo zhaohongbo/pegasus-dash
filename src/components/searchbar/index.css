@@ -1,0 +1,80 @@
+.searchbar {
+  padding: 10px 15px;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.searchbar .field {
+  height: 47px;
+  align-items: center;
+}
+.searchbar .field .input {
+  display: flex;
+  align-items: center;
+}
+.searchbar .field .input .title {
+  text-align: right;
+  width: 100px;
+  font-size: 14px;
+  margin-right: 5px;
+}
+.searchbar .field .input .input {
+  height: 30px;
+}
+.searchbar .field .warning {
+  color: red;
+  text-align: center;
+  margin-left: 105px;
+}
+.searchbar .buttonGroup {
+  align-self: center;
+  margin-left: 24px;
+  height: 47px;
+}
+.searchbar .buttonGroup button {
+  margin-right: 23px;
+  height: 30px;
+  border: none;
+  padding: 0;
+}
+.searchbar .buttonGroup .reset {
+  width: 68px;
+  height: 30px;
+  border-radius: 2px;
+  border: solid 1px #fe751a;
+  font-size: 14px;
+  line-height: 1.0;
+  text-align: center;
+  color: #fe751a;
+}
+.searchbar .buttonGroup .reset:hover {
+  width: 68px;
+  height: 30px;
+  border-radius: 2px;
+  border: solid 1px #fe751a;
+  font-size: 14px;
+  line-height: 1.0;
+  text-align: center;
+  color: #fe751a;
+  opacity: 0.3;
+}
+.searchbar .buttonGroup .search {
+  width: 68px;
+  height: 30px;
+  border-radius: 2px;
+  border-color: #fe751a;
+  background-color: #fe751a;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.0;
+  text-align: center;
+}
+.searchbar .buttonGroup .search:hover {
+  width: 68px;
+  height: 30px;
+  border-radius: 2px;
+  border-color: #fe751a;
+  background-color: #fe751a;
+  opacity: 0.3;
+}

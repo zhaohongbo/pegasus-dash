@@ -1,8 +1,8 @@
 import { store } from './index'
-import { setLogin, setLogout } from './authorization'
+import { setAuth, setLogout } from './authorization'
 
-export function login(userInfo) {
-  store.dispatch(setLogin(userInfo));
+export function auth(userInfo) {
+  store.dispatch(setAuth(userInfo));
 }
 
 export function logout() {

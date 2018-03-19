@@ -1,18 +1,19 @@
-import { request } from './request';
-import { login } from '../redux/authorize'
-import { setToken } from './token'
+import requestWithToken, { request } from './request';
+import { auth } from '../redux/authorize'
 
-export async function queryCurrent() {
-  return request('/api/currentUser');
+export async function getUserInfo() {
+  return requestWithToken('/get_user_info', {
+    method: 'GET',
+  }).then((response) => {
+    auth(response);
+  }).catch((e) => {
+    console.log("get user info", e.message);
+  });
 }
 
 export async function loginService(params) {
-  console.log("auth"+params)
   return request('/login', {
     method: 'POST',
     body: params,
-  }).then((response)=> {
-    setToken(response.token);
-    login(response.userInfo);
   });
 }
