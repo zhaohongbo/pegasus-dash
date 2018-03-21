@@ -42,7 +42,11 @@ class Container extends React.Component {
         </Sider>
         <Layout>
           <Header style={{ background: '#fff' }}>
-            <Top toggle={this.toggle} collapsed={this.state.collapsed} clear={this.props.logout} />
+            <Top toggle={this.toggle} 
+              collapsed={this.state.collapsed} 
+              clear={this.props.logout}  
+              username={this.props.userInfo.username}
+            />
           </Header>
           <Content className="content">
             <Middle />

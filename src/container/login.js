@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import { Form, Input, Button, Checkbox, Spin, message } from 'antd';
 // import { login } from '../../redux/actions'
@@ -46,18 +45,7 @@ class LoginPage extends React.Component {
     this.props.login(response.token, response.userInfo);
   }
 
-  componentDidMount() {
-    if (this.props.userInfo.login) {
-      this.props.history.push('/index');
-    }
-  }
-
   render() {
-    if (this.props.userInfo.login) {
-      return (
-        <Redirect to='/index' />
-      )
-    }
     const { getFieldDecorator } = this.props.form
     return (
       <div className="loginpagewrap">

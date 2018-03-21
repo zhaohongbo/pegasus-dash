@@ -1,30 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Menu, Icon, Switch } from 'antd'
+import { Menu, Icon } from 'antd'
 import { allMenu } from '../utils/menu'
 
 const SubMenu = Menu.SubMenu;
 
+const defaultMenu = "maps"
+
 export default class Left extends React.Component {
   state = {
-    theme: 'dark',
-    current: 'index',
+    current: defaultMenu,
     mode: 'inline',  // 水平垂直展现
   }
 
-  componentDidMount() {
-    this.handleClick([], 'index');
-  }
-
-  changeTheme = (value) => {
+  handleClick = (e) => {
     this.setState({
-      theme: value ? 'dark' : 'light',
-    });
-  }
-
-  handleClick = (e, special) => {
-    this.setState({
-      current: e.key || special,
+      current: e.key,
     });
   }
 
@@ -33,7 +24,7 @@ export default class Left extends React.Component {
       return (
         <SubMenu key={subMenu.url} title={<span><Icon type={subMenu.icon} /><span>{subMenu.name}</span></span>}>
           {subMenu.children.map(menu => (
-            <Menu.Item key={menu.url}><Link to={`/${menu.url}`}>{menu.name}</Link></Menu.Item>
+            <Menu.Item key={menu.url}><Link to={`/${menu.url}`} replace={true}>{menu.name}</Link></Menu.Item>
           ))}
         </SubMenu>
       )
@@ -56,15 +47,13 @@ export default class Left extends React.Component {
         <a href="https://zhaohongbo.github.io">
           <Icon type="github" className={githubName} />
         </a>
-        <span className={authorName}> Eric </span>
-        <Menu theme={this.state.theme} onClick={this.handleClick} defaultOpenKeys={['']}
-          selectedKeys={[this.state.current]} className="menu" mode={this.state.mode} >
+        <span className={authorName}>Dashboard</span>
+        <Menu theme="dark" onClick={this.handleClick}
+          defaultOpenKeys={['visualization']}
+          selectedKeys={[this.state.current]}
+          className="menu" mode={this.state.mode} >
           {allMenu.map(this.createMenu)}
         </Menu>
-        <div className="switch" >
-          <Switch checked={this.state.theme === 'dark'} onChange={this.changeTheme}
-            checkedChildren="Dark" unCheckedChildren="Light" />
-        </div>
       </div>
     );
   }

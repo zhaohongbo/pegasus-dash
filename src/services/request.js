@@ -40,7 +40,7 @@ export default function requestWithToken(url, options) {
   if (token === undefined || token === null) {
     logout()
     return new Promise(function (resolve, reject) {
-      let error = new Error("failed");
+      let error = new Error("login needed");
       reject(error);
     });
   }

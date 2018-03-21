@@ -1,11 +1,14 @@
 import { setToken, clearToken } from './token'
 
+export const LOGIN_STATUS = true
+export const LOGOUT_STATUS = false
+
 export const SET_LOGIN = 'SET_LOGIN'
 export const SET_LOGOUT = 'SET_LOGOUT'
 export const SET_AUTH = 'SET_AUTH'
 
 const initUserInfo = {
-  login: false,
+  login: null,
   username: ''
 }
 
@@ -26,18 +29,18 @@ export function authorization(state = initUserInfo, action) {
     case SET_LOGIN:
       setToken(action.token)
       return Object.assign({}, state, {
-        login: true,
-        username: action.userInfo.username
+        login: LOGIN_STATUS,
+        username: action.userInfo.nickname
       })
     case SET_AUTH:
       return Object.assign({}, state, {
-        login: true,
-        username: action.userInfo.username
+        login: LOGIN_STATUS,
+        username: action.userInfo.nickname
       })
     case SET_LOGOUT:
       clearToken()
       return Object.assign({}, state, {
-        login: false,
+        login: LOGOUT_STATUS,
         username: ''
       })
     default:
