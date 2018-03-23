@@ -1,34 +1,39 @@
 import React from 'react';
-import echarts from 'echarts/lib/echarts';
-import { createOption } from './map.js';
-import 'echarts/lib/chart/map';
-import 'echarts/lib/chart/scatter';
-import 'echarts/lib/component/tooltip';
-import 'echarts/lib/component/geo';
-import 'echarts/lib/component/title';
+import { Echarts } from './echarts.js';
+import { initShanghaiMap } from './map.js';
+import { initLine } from './line.js';
+import { initBar } from './bar.js';
+import { initPie } from './pie.js';
+import { initRadar } from './radar.js';
+import { Row, Col } from 'antd';
 import './index.css'
-import shanghaiMap from '../../data/shanghai.json';
-import { queryLocation } from '../../services/locationService'
 
 export default class Maps extends React.Component {
-  componentDidMount() {
-    var myChart = echarts.init(document.getElementById('charts'));
-    echarts.registerMap("shanghai", shanghaiMap);
-    let data = [
-      { name: 'data', value: [121.5, 30.2, 122] }
-    ];
-    myChart.setOption(createOption(data));
-    queryLocation().then((response) => {
-      let locData = response.map((loc) => {
-        return { name: loc.name, value: [loc.longitude, loc.latitude, loc.value] };
-      });
-      myChart.setOption(createOption(locData));
-    });
-  }
 
   render() {
+    const height = '200px';
     return (
-      <div id="charts" />
+      <React.Fragment>
+        <Row gutter={16}>
+          <Col span={6}>
+            <Echarts initChart={initLine} height={height} />
+          </Col>
+          <Col span={6}>
+            <Echarts initChart={initBar} height={height} />
+          </Col>
+          <Col span={6}>
+            <Echarts initChart={initPie} height={height} />
+          </Col>
+          <Col span={6}>
+            <Echarts initChart={initRadar} height={height} />
+          </Col>
+        </Row>
+        <Row style={{ margin: '50px 0 0 0' }}>
+          <Col span={24}>
+            <Echarts initChart={initShanghaiMap} height='300px' />
+          </Col>
+        </Row>
+      </React.Fragment >
     );
   }
 }

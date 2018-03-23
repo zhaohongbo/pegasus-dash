@@ -45,7 +45,7 @@ export default class Left extends React.Component {
     return (
       <div className="test">
         <a href="https://zhaohongbo.github.io">
-          <Icon type="github" className={githubName} />
+          <Icon type="area-chart" className={githubName} />
         </a>
         <span className={authorName}>Dashboard</span>
         <Menu theme="dark" onClick={this.handleClick}

@@ -3,7 +3,7 @@ export const allMenu = [{
   url: 'visualization',
   icon: 'dashboard',
   children: [
-    { name: '地图', url: 'maps' },
+    { name: '图表', url: 'maps' },
   ]
 }, {
   name: '工作流',
@@ -17,8 +17,6 @@ export const allMenu = [{
   url: 'tool',
   icon: 'tool',
   children: [
-    { name: '小应用', url: 'tools' },
-    { name: '富文本编辑器', url: 'editor' },
     { name: '待办事项', url: 'todoList' },
   ],
 }]

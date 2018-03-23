@@ -4,7 +4,7 @@
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 .bottom {
   padding: 0 16px;
-  margin: 48px 0 24px 0;
+  margin: 24px 0 12px 0;
   text-align: center;
 }
 .bottom .links {

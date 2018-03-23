@@ -36,10 +36,10 @@ class Container extends React.Component {
 
   render() {
     return (
-      <Layout className="containAll">
-        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} >
-          <Left collapsed={this.state.collapsed} />
-        </Sider>
+      <Layout className="containAll" hasSider='true'>
+         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} >
+           <Left collapsed={this.state.collapsed} />
+         </Sider>
         <Layout>
           <Header style={{ background: '#fff' }}>
             <Top toggle={this.toggle} 

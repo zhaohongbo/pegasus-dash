@@ -29,12 +29,6 @@ class RootRouter extends React.Component {
         <Switch>
           <Route path="/login" component={LoginComponent} />
           <Route path="/" component={HomeComponent} />
-          {/* <AuthorizedRoute
-            path="/"
-            render={props => <Container {...props} />}
-            authority={getUserInfo}
-            redirectPath="/login"
-          /> */}
         </Switch>
       </HashRouter>
     );
