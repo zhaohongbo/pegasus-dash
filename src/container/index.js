@@ -6,6 +6,7 @@ import Left from './left'
 import Top from './top'
 import Middle from './middle'
 import Bottom from './bottom'
+import { defaultPath } from '../utils/menu'
 import 'antd/dist/antd.css'
 import './index.css'
 
@@ -14,6 +15,14 @@ const { Sider, Header, Content, Footer } = Layout
 class Container extends React.Component {
   state = {
     collapsed: false,
+    initPathname: "/",
+    defaultPathname: defaultPath(),
+  }
+
+  componentWillMount() {
+    this.setState({
+      initPathname: this.props.location.pathname
+    });
   }
 
   toggle = () => {
@@ -37,22 +46,22 @@ class Container extends React.Component {
   render() {
     return (
       <Layout className="containAll" hasSider='true'>
-         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} >
-           <Left collapsed={this.state.collapsed} />
-         </Sider>
+        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} >
+          <Left collapsed={this.state.collapsed} initPathname={this.state.initPathname} defaultPathname={this.state.defaultPathname} />
+        </Sider>
         <Layout>
           <Header style={{ background: '#fff' }}>
-            <Top toggle={this.toggle} 
-              collapsed={this.state.collapsed} 
-              clear={this.props.logout}  
+            <Top toggle={this.toggle}
+              collapsed={this.state.collapsed}
+              clear={this.props.logout}
               username={this.props.userInfo.username}
             />
           </Header>
           <Content className="content">
-            <Middle />
+            <Middle defaultPathname={this.state.defaultPathname} />
           </Content>
           <Footer>
-            <Bottom 
+            <Bottom
               links={[{
                 key: 'key',
                 title: '首页',

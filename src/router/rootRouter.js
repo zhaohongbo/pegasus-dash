@@ -4,7 +4,6 @@ import Container from '../container'
 import Login from '../container/login'
 import { getUserInfo } from '../services/authService'
 import { message } from 'antd'
-// import AuthorizedRoute from '../components/authorize/AuthorizedRoute'
 import { connect } from 'react-redux'
 import { checkAuthStatus } from '../components/authorize/Authorize'
 import { LOGIN_STATUS, LOGOUT_STATUS, setAuth, setLogout } from '../redux/authorization'
@@ -21,8 +20,8 @@ class RootRouter extends React.Component {
   }
 
   render() {
-    const LoginComponent = checkAuthStatus(Login, this.props.curStatus, LOGOUT_STATUS, "/");
-    const HomeComponent = checkAuthStatus(Container, this.props.curStatus, LOGIN_STATUS, "/login");
+    const LoginComponent = checkAuthStatus(this.props.curStatus, LOGOUT_STATUS, "/")(Login);
+    const HomeComponent = checkAuthStatus(this.props.curStatus, LOGIN_STATUS, "/login")(Container);
 
     return (
       <HashRouter>
