@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux';
 import RootRouter from './router/rootRouter';
-import 'antd/dist/antd.css'
 import './index.css';
 
 
