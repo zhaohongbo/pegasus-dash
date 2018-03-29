@@ -25,7 +25,7 @@ export default class Middle extends React.Component {
         {
           this.createRouter()
         }
-        <Redirect exact from="/" to={this.props.defaultPathname} />
+        <Redirect to={this.props.defaultPathname} />
       </Switch>
     );
   }

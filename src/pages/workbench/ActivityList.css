@@ -1,0 +1,14 @@
+.activeCard {
+  margin-bottom: 24px;
+}
+.extraContent {
+  float: none;
+  margin-right: 0;
+}
+.extraContent .statItem {
+  padding: 0 16px;
+  text-align: left;
+}
+.extraContent .statItem:after {
+  display: none;
+}

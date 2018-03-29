@@ -1,4 +1,5 @@
 import Maps from '../pages/maps'
+import Workbench from '../pages/workbench'
 import TodoList from '../pages/todoList'
 
 export const allMenu = [{
@@ -7,6 +8,7 @@ export const allMenu = [{
   icon: 'dashboard',
   children: [
     { name: '图表', url: 'maps', default: true, component: Maps },
+    { name: '工作台', url: 'workbench', component: Workbench },
   ]
 }, {
   name: '工作流',

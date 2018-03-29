@@ -76,6 +76,8 @@ export function initShanghaiMap(myChart) {
     let locData = response.map((loc) => {
       return { name: loc.name, value: [loc.longitude, loc.latitude, loc.value] };
     });
-    myChart.setOption(createOption(locData));
+    if (myChart !== null) {
+      myChart.setOption(createOption(locData));
+    }
   });
 }
