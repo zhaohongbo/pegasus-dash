@@ -15,18 +15,18 @@ export default class Maps extends React.Component {
     return (
       <React.Fragment>
         <Row gutter={16}>
-          <Col span={12}>
+          <Col xl={12} lg={12} md={24} sm={24} xs={24}>
             <Echarts initChart={initLine} height={height} />
           </Col>
-          <Col span={12}>
+          <Col xl={12} lg={12} md={24} sm={24} xs={24}>
             <Echarts initChart={initBar} height={height} />
           </Col>
         </Row>
         <Row gutter={16} style={{ margin: '50px 0 0 0' }}>
-          <Col span={12}>
+          <Col xl={12} lg={12} md={24} sm={24} xs={24}>
             <Echarts initChart={initPie} height={height} />
           </Col>
-          <Col span={12}>
+          <Col xl={12} lg={12} md={24} sm={24} xs={24}>
             <Echarts initChart={initRadar} height={height} />
           </Col>
         </Row>
