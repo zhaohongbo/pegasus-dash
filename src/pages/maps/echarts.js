@@ -2,7 +2,7 @@ import React from 'react';
 import echarts from 'echarts/lib/echarts';
 import './echarts.css'
 
-export class Echarts extends React.Component {
+export class Echarts extends React.PureComponent {
 
   componentDidMount() {
     this.initEcharts(this.chartDom);
