@@ -13,13 +13,25 @@ export default class Top extends React.Component {
     }
   }
 
+  toggle = () => {
+    this.props.toggle();
+    setTimeout(this.triggerResizeEvent, 300);
+  }
+
+  triggerResizeEvent = ()=> {
+    console.log("trigger")
+    const event = document.createEvent('HTMLEvents');
+    event.initEvent('resize', true, false);
+    window.dispatchEvent(event);
+  }
+
   render() {
     return (
       <div>
         <Icon
           className="trigger"
           type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
-          onClick={this.props.toggle}
+          onClick={this.toggle}
         />
         <Menu mode="horizontal" className="logOut" onClick={this.clear}>
           <SubMenu title={<span><Icon type="user" />{this.props.username}</span>} >

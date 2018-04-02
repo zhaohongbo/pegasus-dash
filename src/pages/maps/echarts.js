@@ -6,11 +6,11 @@ export class Echarts extends React.PureComponent {
 
   componentDidMount() {
     this.initEcharts(this.chartDom);
-    window.addEventListener('resize', () => this.resize());
+    window.addEventListener('resize', this.resize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', () => this.resize());
+    window.removeEventListener('resize', this.resize);
   }
 
   componentDidUpdate() {
