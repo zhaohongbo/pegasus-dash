@@ -1,6 +1,7 @@
 import Maps from '../pages/maps'
 import Workbench from '../pages/workbench'
 import TodoList from '../pages/todoList'
+import WorkflowCreate from '../pages/workflow/create'
 
 export const allMenu = [{
   name: '数据可视化',
@@ -15,7 +16,7 @@ export const allMenu = [{
   url: 'workflow',
   icon: 'schedule',
   children: [
-    { name: '创建', url: 'create' },
+    { name: '创建', url: 'create', component: WorkflowCreate },
   ],
 }, {
   name: '工具模块',

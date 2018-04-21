@@ -73,7 +73,8 @@ export function request(url, options) {
       };
     }
   }
-  const reqUrl = "https://pegasus-api.herokuapp.com" + url
+  // const reqUrl = "https://pegasus-api.herokuapp.com" + url
+  const reqUrl = "http://127.0.0.1:5000" + url
   return fetch(reqUrl, newOptions)
     .then(checkStatus)
     .then((response) => {
